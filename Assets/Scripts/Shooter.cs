@@ -16,7 +16,7 @@ public class Shooter : MonoBehaviour
     {
         if(Input.GetAxis("Fire1")>0){
             beam.enabled=true;
-            Debug.Log("Fire");
+           // Debug.Log("Fire");
             DrawBeam();
             
         }
