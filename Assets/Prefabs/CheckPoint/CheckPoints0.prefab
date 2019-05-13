@@ -44,6 +44,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcceaddbf35c511409c375099d9b848d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  talkBeforeBattle:
+  - "\u541B\u306F\u9078\u3070\u308C\u305F\u52C7\u8005123456erws"
+  - "\u3053\u306E\u4E16\u754C\u3067\u9811\u5F35\u3063\u3066\u304F\u3060\u3055\u3044"
+  talkAffteBattle: []
+  EnemyGroup:
+  - {fileID: 1623485178}
 --- !u!1001 &4449557195139285930
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -51,11 +57,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5685066084006209828}
     m_Modifications:
-    - target: {fileID: 4449557195926466838, guid: 31517383c3df1c6429dc9fa1a3546725,
-        type: 3}
-      propertyPath: m_Name
-      value: Canvas
-      objectReference: {fileID: 0}
     - target: {fileID: 4449557195926466839, guid: 31517383c3df1c6429dc9fa1a3546725,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -161,11 +162,33 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4449557195926466838, guid: 31517383c3df1c6429dc9fa1a3546725,
+        type: 3}
+      propertyPath: m_Name
+      value: Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 4449557195688503632, guid: 31517383c3df1c6429dc9fa1a3546725,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4449557194651368815, guid: 31517383c3df1c6429dc9fa1a3546725,
+        type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 9093f41175ea04344afcfab9977fd208,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 31517383c3df1c6429dc9fa1a3546725, type: 3}
 --- !u!224 &1593143997 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4449557195926466839, guid: 31517383c3df1c6429dc9fa1a3546725,
+    type: 3}
+  m_PrefabInstance: {fileID: 4449557195139285930}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1623485178 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4449557195688503632, guid: 31517383c3df1c6429dc9fa1a3546725,
     type: 3}
   m_PrefabInstance: {fileID: 4449557195139285930}
   m_PrefabAsset: {fileID: 0}

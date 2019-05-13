@@ -15,7 +15,7 @@ public class Manager<T> : MonoBehaviour where T : MonoBehaviour
             if (null == instance)
             {
                 instance = value;
-                DontDestroyOnLoad(instance.gameObject);
+                //DontDestroyOnLoad(instance.gameObject);
             }
             else if (instance != null)
             {
