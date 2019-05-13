@@ -6,48 +6,51 @@ using UnityEngine.Events;
 public class GameManager : Manager<GameManager>
 {
 
-    
+
     public List<CheckPoint> checkPoints = new List<CheckPoint>();
     public UnityEvent goToNextPoint;
 
-    private int nowCheckPoint=0;
+    private int nowCheckPoint = 0;
 
     // Start is called before the first frame update
     void Start()
     {
         nowCheckPoint = 0;
-        goToNextPoint=new UnityEvent();
+        goToNextPoint = new UnityEvent();
         goToNextPoint.AddListener(MoveController.Instance.MoveToNextPoint);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void nextCheckPoint()
     {
-        if (nowCheckPoint < checkPoints.Count-1)//終点じゃなければ
+        if (nowCheckPoint < checkPoints.Count - 1)//終点じゃなければ
         {
             nowCheckPoint++;
             //動画再生
-            
+
             goToNextPoint.Invoke();
-            
+
         }
-        else{
+        else
+        {
             Debug.LogWarning("at finish point!");
         }
     }
 
-    public void InsCheckPoint(){
+    public void InsCheckPoint()
+    {
 
-        Instantiate(checkPoints[nowCheckPoint],Vector3.zero,Quaternion.identity);
-        Debug.Log("enter check point"+nowCheckPoint);
+        Instantiate(checkPoints[nowCheckPoint], Vector3.zero, Quaternion.identity);
+        Debug.Log("enter check point" + nowCheckPoint);
     }
 
-    public int NowCheckPoint(){
+    public int NowCheckPoint()
+    {
         return nowCheckPoint;
     }
 }
