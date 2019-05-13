@@ -27,8 +27,8 @@ public class PlayerController : MonoBehaviour
     void Update() {
         float addRot = speed * Time.deltaTime;
 
-        Debug.Log("-----------------------------------------");
-        Debug.Log(transform.localEulerAngles.x);
+        //Debug.Log("-----------------------------------------");
+        //Debug.Log(transform.localEulerAngles.x);
         
         // Move Up
         if(Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))

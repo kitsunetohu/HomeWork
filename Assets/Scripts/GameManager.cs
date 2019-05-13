@@ -19,12 +19,15 @@ public class GameManager : Manager<GameManager>
 
     // Update is called once per frame
     void Update() {
+        
     }
 
     public void nextCheckPoint() {
         //終点じゃなければ
         if(nowCheckPoint < checkPoints.Count - 1) {
             nowCheckPoint++;
+            // マップ切替
+            MapController.Instance.nextMap();
             //動画再生
             goToNextPoint.Invoke();
         } else {
@@ -37,7 +40,7 @@ public class GameManager : Manager<GameManager>
         Debug.Log("enter check point"+nowCheckPoint);
     }
 
-    public int NowCheckPoint() {
+    public int NowCheckPoint(){
         return nowCheckPoint;
     }
 }
