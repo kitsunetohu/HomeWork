@@ -13,6 +13,7 @@ public class CheckPoint : MonoBehaviour
         TalkAffteBattle
     }
     StateMachine<CheckPointStates> checkPointFSM;
+
     [SerializeField]
     string[] talkBeforeBattle;//バトル開始前の話
     [SerializeField]
@@ -40,21 +41,22 @@ public class CheckPoint : MonoBehaviour
     void TalkBeforeBattle_Enter()
     {
         talkBeforeIenu = talkBeforeBattle.GetEnumerator();
-        
+
     }
     void TalkBeforeBattle_Update()
     {
-       
+
         if (Input.GetMouseButtonDown(0))
         {
-            
+
             if (talkBeforeIenu.MoveNext())
             {//話はまだ終わっていない,UIに更新させて
                 UIManager.Instance.TalkUIUpdata(talkBeforeIenu.Current as string);
             }
-            else {//話がおわり、バトル状態に入る
-                
-                 checkPointFSM.ChangeState(CheckPointStates.Battle);
+            else
+            {//話がおわり、バトル状態に入る
+
+                checkPointFSM.ChangeState(CheckPointStates.Battle);
             }
         }
     }
@@ -63,9 +65,11 @@ public class CheckPoint : MonoBehaviour
         UIManager.Instance.hideTalk();
     }
 
-    void Battle_Enter(){
+    void Battle_Enter()
+    {
         //初始化战斗场景
-        foreach(GameObject x in EnemyGroup){
+        foreach (GameObject x in EnemyGroup)
+        {
             x.SetActive(true);
         }
     }
