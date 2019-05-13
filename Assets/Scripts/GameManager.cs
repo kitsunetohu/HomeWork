@@ -7,46 +7,47 @@ public class GameManager : Manager<GameManager>
 {
 
 
+
+
     public List<CheckPoint> checkPoints = new List<CheckPoint>();
     public UnityEvent goToNextPoint;
 
     private int nowCheckPoint = 0;
 
     // Start is called before the first frame update
-    void Start()
-    {
+    void Start() {
         nowCheckPoint = 0;
         goToNextPoint = new UnityEvent();
         goToNextPoint.AddListener(MoveController.Instance.MoveToNextPoint);
     }
 
     // Update is called once per frame
-    void Update()
-    {
 
+    void Update() {
+        
     }
 
-    public void nextCheckPoint()
-    {
-        if (nowCheckPoint < checkPoints.Count - 1)//終点じゃなければ
-        {
+    public void nextCheckPoint() {
+        //終点じゃなければ
+        if(nowCheckPoint < checkPoints.Count - 1) {
+
             nowCheckPoint++;
+            // マップ切替
+            MapController.Instance.nextMap();
             //動画再生
 
             goToNextPoint.Invoke();
+        } else {
 
-        }
-        else
-        {
             Debug.LogWarning("at finish point!");
         }
     }
 
-    public void InsCheckPoint()
-    {
 
-        Instantiate(checkPoints[nowCheckPoint], Vector3.zero, Quaternion.identity);
-        Debug.Log("enter check point" + nowCheckPoint);
+    public void InsCheckPoint() {
+        Instantiate(checkPoints[nowCheckPoint],Vector3.zero,Quaternion.identity);
+        Debug.Log("enter check point"+nowCheckPoint);
+
     }
 
     public int NowCheckPoint()

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.4465782, g: 0.49641252, b: 0.5748167, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -718,6 +718,7 @@ GameObject:
   m_Component:
   - component: {fileID: 776388383}
   - component: {fileID: 776388384}
+  - component: {fileID: 776388385}
   m_Layer: 0
   m_Name: map
   m_TagString: Untagged
@@ -776,7 +777,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 50f3fc0487e983342afd31d5d710c3ab, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -784,9 +785,24 @@ SpriteRenderer:
   m_Size: {x: 9.15, y: 8.44}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &776388385
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 776388382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 112f9b5ce7bdbde4cafaf02b55a8522e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OutdoorSprite: {fileID: 21300000, guid: 50f3fc0487e983342afd31d5d710c3ab, type: 3}
+  Floor1Sprite: {fileID: 21300000, guid: 8005156bc5dff34478cc7bbba0a16499, type: 3}
+  Floor2Sprite: {fileID: 21300000, guid: 349e9a312c543284ea53e44ca206644d, type: 3}
 --- !u!1001 &816532724
 PrefabInstance:
   m_ObjectHideFlags: 0
