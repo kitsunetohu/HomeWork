@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    // Max Angle
-    public float maxAngle = 80;
-    // Min Angle
-    public float minAngle = -80;
+    // Max Vertical Angle
+    public float maxAngleV = 80;
+    // Min Vertical Angle
+    public float minAngleV = -80;
     // Rotational Speed
     public float speed;
 
     // Now Angle of Y Direction
-    private float nowAngleY;
+    private float nowAngleV;
     // Player Position
     private Vector3 PlayerPosition;
     
@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour
     void Start() {
         // Initialize
         speed          = 50;
-        nowAngleY      = 0;
+        nowAngleV      = 0;
         PlayerPosition = transform.position;
     }
 
@@ -29,15 +29,15 @@ public class PlayerController : MonoBehaviour
 
         // Move Up
         if(Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow)) {
-            nowAngleY = Mathf.Clamp(nowAngleY - addRot, minAngle, maxAngle);
-            if(nowAngleY > minAngle)
+            nowAngleV = Mathf.Clamp(nowAngleV - addRot, minAngleV, maxAngleV);
+            if(nowAngleV > minAngleV)
                 transform.RotateAround(PlayerPosition, transform.right, -addRot);
         }
 
         // Move Down
         if(Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow)) {
-            nowAngleY = Mathf.Clamp(nowAngleY + addRot, minAngle, maxAngle);
-            if(nowAngleY < maxAngle)
+            nowAngleV = Mathf.Clamp(nowAngleV + addRot, minAngleV, maxAngleV);
+            if(nowAngleV < maxAngleV)
                 transform.RotateAround(PlayerPosition, transform.right, addRot);
         }
 
