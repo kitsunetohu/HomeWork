@@ -23,6 +23,7 @@ public class CheckPoint : MonoBehaviour
     IEnumerator talkBeforeIenu;
     IEnumerator talkAfterIenu;
     // Start is called before the first frame update
+    private int nowEnemyNum;
 
     void Awake()
     {
@@ -35,6 +36,7 @@ public class CheckPoint : MonoBehaviour
         mahoujin.onClick.AddListener(() => debugCheck());
 
         talkAfterIenu = talkAffteBattle.GetEnumerator();
+        nowEnemyNum = EnemyGroup.Length;
 
     }
 
@@ -80,5 +82,9 @@ public class CheckPoint : MonoBehaviour
         GameManager.Instance.nextCheckPoint();
         Destroy(this.gameObject);
 
+    }
+
+    void KilledEnemy() {
+        nowEnemyNum -= 1;
     }
 }
