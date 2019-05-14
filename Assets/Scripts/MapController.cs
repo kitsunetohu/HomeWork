@@ -5,28 +5,58 @@ using UnityEngine;
 
 public class MapController : Manager<MapController>
 {
-    public Sprite OutdoorSprite;
-    public Sprite Floor1Sprite;
-    public Sprite Floor2Sprite;
+    public GameObject OutdoorMap;
+    public GameObject Floor1Map;
+    public GameObject Floor2Map;
 
-    SpriteRenderer MapSpriteRenderer;
-    Sprite[] MapSprites;
+    public Animation playerMarkAnima;
+
+    public AnimationClip outdoor;
+    public AnimationClip F1;
+    public AnimationClip F3;
+
+    AnimationClip currentClip;
+    GameObject[] Maps;
     int nowMap;
 
-    void Start() {
-        MapSpriteRenderer        = GetComponent<SpriteRenderer>();
-        MapSprites               = new Sprite[] {OutdoorSprite, Floor1Sprite, Floor2Sprite};
-        nowMap                   = 0;   
-
-        MapSpriteRenderer.sprite = MapSprites[nowMap];
+    void Start()
+    {
+        Maps = new GameObject[] { OutdoorMap, Floor1Map, Floor2Map };
+        playerMarkAnima = GetComponent<Animation>();
+        nowMap = 0;
+        GameManager.Instance.PlayerMoveFront.AddListener(PlayerMoveFront);
+        GameManager.Instance.PlayerMoveBack.AddListener(PlayerMoveBack);
+        GameManager.Instance.goToNextPoint.AddListener(GoToNextPoint);
+        MoveController.Instance.InsCheckPoint.AddListener(InsCheckPoint);
     }
 
-    void Update() {
+    void Update()
+    {
     }
 
-    public void nextMap() {
+    public void nextMap()
+    {
+        if (nowMap >= 2) return;
+
+        Maps[nowMap].SetActive(false);
         nowMap += 1;
-        MapSpriteRenderer.sprite = MapSprites[nowMap];
+        Maps[nowMap].SetActive(true);
         Debug.Log("Map ID" + nowMap);
+
+    }
+
+    void GoToNextPoint(){
+        //動画を再生
+    }
+    void InsCheckPoint(){
+        //動画を停止
+    }
+
+     void PlayerMoveBack(){
+        //動画を再生
+    }
+
+     void PlayerMoveFront(){
+        //動画を停止
     }
 }

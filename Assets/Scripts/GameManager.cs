@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using MonsterLove.StateMachine;
+using System.Linq;
 
 public class GameManager : Manager<GameManager>
 {
-    public enum GameState
+    enum GameState
     {
         Prepare,
         Moving,
@@ -15,11 +16,16 @@ public class GameManager : Manager<GameManager>
     public PlayerController playerController;
     StateMachine<GameState> gameFSM;
     public List<CheckPoint> checkPoints = new List<CheckPoint>();
-    public UnityEvent goToNextPoint;
+    public UnityEvent goToNextPoint= new UnityEvent();
+   
+    public UnityEvent PlayerMoveBack = new UnityEvent();
+    public UnityEvent PlayerMoveFront = new UnityEvent();
+
+    public int[] MapChangePoint=new int[2];//どこでマップを変える
     public bool isMoving
     {
-        get { return isMoving; }
-        private set { isMoving = value; }
+        get ;
+        private set;
     }
 
     private int nowCheckPoint = 0;
@@ -37,8 +43,9 @@ public class GameManager : Manager<GameManager>
     void Start()
     {
         nowCheckPoint = 0;
-        goToNextPoint = new UnityEvent();
         goToNextPoint.AddListener(MoveController.Instance.MoveToNextPoint);
+        PlayerMoveFront.AddListener(MoveController.Instance.PlayerMoveFront);
+        PlayerMoveBack.AddListener(MoveController.Instance.PlayerMoveBack);
     }
 
     // Update is called once per frame
@@ -65,27 +72,34 @@ public class GameManager : Manager<GameManager>
 
     void Moving_Enter()
     {
+        
+        isMoving = true;
         nowCheckPoint++;
         // マップ切替
-        //MapController.Instance.nextMap();
-        //動画再生
+        if(MapChangePoint.Contains(nowCheckPoint)){
+            MapController.Instance.nextMap();
+            Debug.Log("changedMap");
+        }
+        
+        
 
         goToNextPoint.Invoke();
     }
-    void Moving_Update(){
-        if(!playerController.isPlayerFront()){
-            MoveController.Instance.PlayerMoveBack();
+    void Moving_Update()
+    {
+        if (!playerController.isPlayerFront())
+        {
+            PlayerMoveBack.Invoke();
         }
-        else{
-            MoveController.Instance.PlayerMoveFront();
+        else
+        {
+            PlayerMoveFront.Invoke();
         }
     }
 
-
-
-
     void InPoint_Enter()
     {
+        isMoving = false;
         Instantiate(checkPoints[nowCheckPoint], Vector3.zero, Quaternion.identity);
         Debug.Log("enter check point" + nowCheckPoint);
     }
