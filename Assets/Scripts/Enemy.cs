@@ -23,7 +23,7 @@ public class Enemy : MonoBehaviour
     }
 
     private void Death() {
-        gameObject.SendMessage("Killedenemy");
+        gameObject.SendMessage("KilledEnemy");
         Destroy(gameObject);
     }
 }
