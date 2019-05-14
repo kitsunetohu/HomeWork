@@ -57,4 +57,18 @@ void PrepareCompleted(VideoPlayer vp)
         vp.Pause(); 
         UIManager.Instance.LoadingFade();
     }
+
+    public void PlayerMoveBack(){
+        if(videoPlayer.isPaused){
+            return; 
+        }
+        videoPlayer.Pause(); 
+    }
+
+    public void PlayerMoveFront(){
+        if(videoPlayer.isPlaying){
+            return;
+        }
+        videoPlayer.Play();
+    }
 }

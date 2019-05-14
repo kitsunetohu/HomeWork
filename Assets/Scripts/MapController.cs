@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class MapController : Manager<MapController>
 {
     public Sprite OutdoorSprite;
