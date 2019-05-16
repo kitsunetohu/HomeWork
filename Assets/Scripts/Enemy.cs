@@ -6,11 +6,13 @@ public class Enemy : MonoBehaviour
 {
     private float   health;      // Enemy's HP
     private float damageRate;
+    public GameObject Explosion;
+
 
     void Start() {
         // Temp
         health     = 100;
-        damageRate = 50;
+        damageRate = 100;
     }
 
     void Update() {
@@ -23,7 +25,13 @@ public class Enemy : MonoBehaviour
     }
 
     private void Death() {
-        gameObject.SendMessage("KilledEnemy");
+
+        //gameObject.SendMessage("KilledEnemy");
+        GameObject buildedExplosion=  Instantiate(Explosion,transform.position,Quaternion.identity);
+        Destroy(buildedExplosion,2);
+        GetComponentInParent<CheckPoint>().KilledEnemy();
+
         Destroy(gameObject);
+
     }
 }

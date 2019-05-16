@@ -27,7 +27,7 @@ public class beamShooter : MonoBehaviour
             beam.enabled = true;
             // Debug.Log("Fire");
             DrawBeam();
-            
+
 
 
 
@@ -35,6 +35,7 @@ public class beamShooter : MonoBehaviour
         else
         {
             beam.enabled = false;
+            Destroy(buildedEffect);
         }
     }
 
@@ -42,31 +43,36 @@ public class beamShooter : MonoBehaviour
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-        RaycastHit hit; 
+        RaycastHit hit;
         Physics.queriesHitBackfaces = true;
-        if (Physics.Raycast(ray, out hit, Mathf.Infinity,hitble))
+        if (Physics.Raycast(ray, out hit, Mathf.Infinity, hitble))
         {
             beam.SetPosition(0, transform.position);
             beam.SetPosition(1, hit.point);
             h = hit.point;
-            Debug.Log(hit.collider.gameObject.layer);
-            if (hit.collider.gameObject.layer == enemyMaskNum && buildedEffect ==null)
+            //            Debug.Log(hit.collider.gameObject.layer);
+            if (hit.collider.gameObject.layer == enemyMaskNum)
             {
-                
-                buildedEffect = Instantiate(effect, hit.point, Quaternion.identity);
-            }
-            else
-            {
-                if(buildedEffect) buildedEffect.transform.position = hit.point;
+                hit.collider.gameObject.GetComponent<Enemy>().GetDamage();
+                if (buildedEffect == null)
+                {
+                    buildedEffect = Instantiate(effect, hit.point, Quaternion.Euler(-90, 0, 0));
+                }
+                {
+                    if (buildedEffect) buildedEffect.transform.position = hit.point;
+                }
+
+
+
             }
             if (hit.collider.gameObject.layer != enemyMaskNum && buildedEffect != null)
             {
                 Destroy(buildedEffect);
             }
 
+
         }
 
-    }
-    
 
+    }
 }

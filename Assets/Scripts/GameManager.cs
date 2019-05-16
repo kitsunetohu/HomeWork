@@ -103,6 +103,7 @@ public class GameManager : Manager<GameManager>
     void InPoint_Enter()
     {
         isMoving = false;
+        MoveController.Instance.InsCheckPoint.Invoke();
         Debug.Log(nowCheckPoint);
         Instantiate(checkPoints[nowCheckPoint], Vector3.zero, Quaternion.identity);
         Debug.Log("enter check point" + nowCheckPoint);

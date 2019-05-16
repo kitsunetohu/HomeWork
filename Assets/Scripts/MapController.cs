@@ -42,7 +42,7 @@ public class MapController : Manager<MapController>
     }
 
     void GoToNextPoint(){
-        //動画を再生 animator pause??
+        //動画を再生 
         playerMoveAnimator.speed=1;
 
     }
