@@ -22,6 +22,7 @@ public class GameManager : Manager<GameManager>
     public UnityEvent PlayerMoveFront = new UnityEvent();
 
     public int[] MapChangePoint=new int[2];//どこでマップを変える
+    public bool initIsMoving;
     public bool isMoving
     {
         get ;
@@ -42,10 +43,12 @@ public class GameManager : Manager<GameManager>
 
     void Start()
     {
+        isMoving=initIsMoving;
         nowCheckPoint = 0;
         goToNextPoint.AddListener(MoveController.Instance.MoveToNextPoint);
         PlayerMoveFront.AddListener(MoveController.Instance.PlayerMoveFront);
         PlayerMoveBack.AddListener(MoveController.Instance.PlayerMoveBack);
+
     }
 
     // Update is called once per frame
@@ -87,19 +90,20 @@ public class GameManager : Manager<GameManager>
     }
     void Moving_Update()
     {
-        if (!playerController.isPlayerFront())
-        {
-            PlayerMoveBack.Invoke();
-        }
-        else
-        {
-            PlayerMoveFront.Invoke();
-        }
+      //  if (!playerController.isPlayerFront())
+      //  {
+          //  PlayerMoveBack.Invoke();
+       // }
+       // else
+       // {
+          //  PlayerMoveFront.Invoke();
+       // }
     }
 
     void InPoint_Enter()
     {
         isMoving = false;
+        Debug.Log(nowCheckPoint);
         Instantiate(checkPoints[nowCheckPoint], Vector3.zero, Quaternion.identity);
         Debug.Log("enter check point" + nowCheckPoint);
     }

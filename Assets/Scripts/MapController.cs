@@ -9,20 +9,15 @@ public class MapController : Manager<MapController>
     public GameObject Floor1Map;
     public GameObject Floor2Map;
 
-    public Animation playerMarkAnima;
+    public Animator playerMoveAnimator;
+    public string[] mapNames;
 
-    public AnimationClip outdoor;
-    public AnimationClip F1;
-    public AnimationClip F3;
-
-    AnimationClip currentClip;
     GameObject[] Maps;
     int nowMap;
 
     void Start()
     {
         Maps = new GameObject[] { OutdoorMap, Floor1Map, Floor2Map };
-        playerMarkAnima = GetComponent<Animation>();
         nowMap = 0;
         GameManager.Instance.PlayerMoveFront.AddListener(PlayerMoveFront);
         GameManager.Instance.PlayerMoveBack.AddListener(PlayerMoveBack);
@@ -42,21 +37,27 @@ public class MapController : Manager<MapController>
         nowMap += 1;
         Maps[nowMap].SetActive(true);
         Debug.Log("Map ID" + nowMap);
-
+        //change animation 
+        playerMoveAnimator.Play(mapNames[nowMap]);
     }
 
     void GoToNextPoint(){
-        //動画を再生
+        //動画を再生 animator pause??
+        playerMoveAnimator.speed=1;
+
     }
     void InsCheckPoint(){
         //動画を停止
+        playerMoveAnimator.speed=0;
     }
 
      void PlayerMoveBack(){
         //動画を再生
+        playerMoveAnimator.speed=1;
     }
 
      void PlayerMoveFront(){
         //動画を停止
+        playerMoveAnimator.speed=0;
     }
 }

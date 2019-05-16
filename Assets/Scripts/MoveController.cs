@@ -58,7 +58,8 @@ public class MoveController : Manager<MoveController>
 
         vp.prepareCompleted -= PrepareCompleted;
         vp.Play();
-        vp.Pause();
+        Debug.Log("prepared");
+        //vp.Pause();
         UIManager.Instance.LoadingFade();
     }
 
