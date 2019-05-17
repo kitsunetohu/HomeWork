@@ -72,7 +72,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   talkBeforeBattle:
-  - "\u9580"
+  - "NAIST\u6B63\u9580"
   - "\u897F\u66A62019\u5E74"
   - "Care Gan\u3068\u3044\u3046\u3001\u30D3\u30FC\u30E0\u304C\u51FA\u308B\u6700\u5148\u7AEF\u306E\u6A5F\u5668\u3092\u958B\u767A\u3057\u305F"
   - "\u6E05\u5DDD\u6559\u6388\u306F\u3001\u60AA\u306E\u7D44\u7E54\u306B\u6355\u307E\u308A\u3001\u7814\u7A76\u5BA4\u306B\u9589\u3058\u8FBC\u3081\u3089\u308C\u3066\u3057\u307E\u3063\u305F"
@@ -82,6 +82,7 @@ MonoBehaviour:
   - "\u3088\u3057\uFF01\u3000\u305D\u306E\u8ABF\u5B50\u3060"
   EnemyGroup:
   - {fileID: 5653695989188884328}
+  shooter: {fileID: 0}
 --- !u!1001 &1590120180
 PrefabInstance:
   m_ObjectHideFlags: 0

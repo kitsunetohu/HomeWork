@@ -1412,6 +1412,8 @@ GameObject:
   - component: {fileID: 1935169416}
   - component: {fileID: 1935169417}
   - component: {fileID: 1935169419}
+  - component: {fileID: 1935169418}
+  - component: {fileID: 1935169420}
   m_Layer: 11
   m_Name: VideoSphere
   m_TagString: Untagged
@@ -1484,7 +1486,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1935169411}
-  m_LocalRotation: {x: -0, y: -0.93041766, z: 0, w: -0.36650118}
+  m_LocalRotation: {x: -0, y: -0.9724948, z: 0, w: -0.23292471}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 15, y: 15, z: 15}
   m_Children: []
@@ -1549,6 +1551,18 @@ VideoPlayer:
   m_Looping: 0
   m_WaitForFirstFrame: 1
   m_FrameReadyEventEnabled: 0
+--- !u!114 &1935169418
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1935169411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5eba7f463914f8b4f96ea1160584f90c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!64 &1935169419
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1563,6 +1577,25 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!95 &1935169420
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1935169411}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c7b23bda2e5d46b438c19828d14befaf, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &892246078705755002
 PrefabInstance:
   m_ObjectHideFlags: 0
