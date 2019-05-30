@@ -11,6 +11,7 @@ public class VideoRotationCtrl : MonoBehaviour
         rotationAnimator=GetComponent<Animator>();
         MoveController.Instance.InsCheckPoint.AddListener(pauseVideo);
         GameManager.Instance.goToNextPoint.AddListener(playVideo);
+        pauseVideo();
     }
 
     // Update is called once per frame
@@ -22,7 +23,7 @@ public class VideoRotationCtrl : MonoBehaviour
     void pauseVideo(){
         rotationAnimator.speed=0;
     }
-    void playVideo(){
+    public void playVideo(){
         rotationAnimator.speed=1;
     }
 }

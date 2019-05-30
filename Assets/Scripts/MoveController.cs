@@ -57,10 +57,20 @@ public class MoveController : Manager<MoveController>
     {
 
         vp.prepareCompleted -= PrepareCompleted;
-        vp.Play();
+        UIManager.Instance.StartButton.gameObject.SetActive(true);       
+        
+    }
+
+    public void waitForLoad(){//called by button,start game before loaded
+
+        //yield return new WaitForSeconds(5.0f);
+        videoPlayer.Play();
         Debug.Log("prepared");
         //vp.Pause();
         UIManager.Instance.LoadingFade();
+        MapController.Instance.GoToNextPoint();
+        gameObject.GetComponent<VideoRotationCtrl>().playVideo();
+
     }
 
     public void PlayerMoveBack()

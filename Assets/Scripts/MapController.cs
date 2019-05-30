@@ -23,6 +23,7 @@ public class MapController : Manager<MapController>
         GameManager.Instance.PlayerMoveBack.AddListener(PlayerMoveBack);
         GameManager.Instance.goToNextPoint.AddListener(GoToNextPoint);
         MoveController.Instance.InsCheckPoint.AddListener(InsCheckPoint);
+        playerMoveAnimator.speed=0;
     }
 
     void Update()
@@ -41,7 +42,7 @@ public class MapController : Manager<MapController>
         playerMoveAnimator.Play(mapNames[nowMap]);
     }
 
-    void GoToNextPoint(){
+    public void GoToNextPoint(){
         //動画を再生 
         playerMoveAnimator.speed=1;
 

@@ -8,6 +8,7 @@ public class UIManager : Manager<UIManager>
 {
     public Graphic talkPanel;
     public CanvasGroup loadingPanel;
+    public Button StartButton;
 
     // Start is called before the first frame update
     void Start()
@@ -44,4 +45,6 @@ public class UIManager : Manager<UIManager>
             loadingPanel.gameObject.SetActive(false);
         });
     }
+
+
 }
